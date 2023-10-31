@@ -16,7 +16,7 @@ public class NetworkInfo {
             while (networkInterfaces.hasMoreElements()) {
                 NetworkInterface networkInterface = networkInterfaces.nextElement();
                 System.out.println("Interface Name: " + networkInterface.getDisplayName());
-                if (!networkInterface.getName().equals("lo")){
+                if (networkInterface.getHardwareAddress() != null){
                     System.out.println("Interface Hardware Address: " + formatMACAddress(networkInterface.getHardwareAddress()));
                 }
                 Enumeration<InetAddress> inetAddresses = networkInterface.getInetAddresses();
